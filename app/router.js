@@ -6,9 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route("about");
-  this.route("encode");
-  this.route("decode");
+  this.route('print');
 });
 
 export default Router;

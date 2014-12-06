@@ -1,7 +1,6 @@
 @import "bower_components/bourbon/dist/bourbon";
 @import "bower_components/neat/app/assets/stylesheets/neat";
 @import "bower_components/neat/app/assets/stylesheets/neat-helpers";
-@import "print.scss";
 
 body {
   background: #f8f8f8;
@@ -12,7 +11,7 @@ body {
   @include outer-container;
 }
 
-#pad {
+.pad {
   @include span-columns(6);
   @include shift(3);
   padding: 1em;
@@ -31,9 +30,9 @@ body {
 
 #character_table {
   float: right;
+  padding-top: 0.2em;
   padding-bottom: 0.2em;
   font-size: 0.8em;
-  border: 1px dashed gray;
 
   table {
     .space {
@@ -68,3 +67,5 @@ button {
     }
   }
 }
+
+@import "print.scss";

@@ -15,5 +15,8 @@
     "qunit": "~1.15.0",
     "bourbon": "~4.0.2",
     "neat": "~1.7.0"
+  },
+  "devDependencies": {
+    "jspdf": "~1.0.272"
   }
 }

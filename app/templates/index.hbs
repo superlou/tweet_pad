@@ -28,8 +28,13 @@
 
 
 <div id="options">
-  <button {{action 'generate'}}>Generate New Pad</button>
-  <button {{action 'pdf'}}>PDF</button>
+  <button {{action 'generate'}}>Regenerate</button>
+  <button {{action 'pdf'}} class="tooltip-item">
+      PDF
+      <div class="tooltip">
+        <p>Matches {{#external-link href="http://www.amazon.com/gp/product/B00005QT7U/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00005QT7U&linkCode=as2&tag=louissimonsco-20&linkId=HIU4ERE5KXCUWBIE"}}Avery 5371{{/external-link}} business card paper</p>
+      </div>
+  </button>
 </div>
 
 <div id="explanation">

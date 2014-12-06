@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
         _this.drawCard(doc, origin.x, origin.y, _this.get('pad'), false);
       });
 
-      doc.save('Test.pdf');
+      doc.save('pad.pdf');
     }
   },
 

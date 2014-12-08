@@ -8,13 +8,22 @@ body {
   -webkit-backface-visibility: hidden;
 }
 
+button {
+  @include button;
+}
+
 #container {
+
+}
+
+section {
   @include outer-container;
 }
 
-.pad {
+#card {
   @include span-columns(6);
   @include shift(3);
+
   padding: 1em;
   border: 1px solid #f4f4f4;
   border-bottom: 1px solid #ddd;
@@ -27,46 +36,39 @@ body {
     width: 1.6em;
     text-align: center;
   }
+
+  #character_table {
+    float: right;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-size: 0.8em;
+
+    table {
+      .space {
+        width: 1em;
+        text-align: center;
+      }
+
+      font-family: courier;
+    }
+  }
 }
 
-#character_table {
-  float: right;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  font-size: 0.8em;
+#explanation {
+  #examples {
+    text-align: center;
 
-  table {
-    .space {
-      width: 1em;
-      text-align: center;
+    img {
+      border: 1px solid #f4f4f4;
+      border-bottom: 1px solid #ddd;
     }
-
-    font-family: courier;
   }
 }
 
 #options {
+  @include fill-parent();
+  @include row();
   text-align: center;
-  @include span-columns(12);
-}
-
-button {
-  @include button;
-}
-
-#explanation {
-  @include span-columns(12);
-
-  .tips {
-    background: white;
-    border: 1px solid #f4f4f4;
-    border-bottom: 1px solid #ddd;
-    padding: 1em;
-
-    .mono {
-      font-family: courier;
-    }
-  }
 }
 
 .tooltip-item {

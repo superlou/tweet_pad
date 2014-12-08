@@ -1,33 +1,33 @@
-<div class="pad">
-  <div id="character_table">
-    <table>
-      <tr>
-        <td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td class='space'></td>
-        <td>F</td><td>G</td><td>H</td><td>I</td><td>J</td>
-      </tr>
-      <tr>
-        <td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td class='space'></td>
-        <td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td>
-      </tr>
-      <tr>
-        <td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td class='space'></td>
-        <td>Z</td><td>_</td><td>0</td><td>1</td><td>2</td>
-      </tr>
-      <tr>
-        <td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td class='space'></td>
-        <td>8</td><td>9</td><td>#</td><td>@</td><td>.</td>
-      </tr>
-    </table>
+<section>
+  <div id="card">
+    <div id="character_table">
+      <table>
+        <tr>
+          <td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td class='space'></td>
+          <td>F</td><td>G</td><td>H</td><td>I</td><td>J</td>
+        </tr>
+        <tr>
+          <td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td class='space'></td>
+          <td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td>
+        </tr>
+        <tr>
+          <td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td class='space'></td>
+          <td>Z</td><td>_</td><td>0</td><td>1</td><td>2</td>
+        </tr>
+        <tr>
+          <td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td class='space'></td>
+          <td>8</td><td>9</td><td>#</td><td>?</td><td>.</td>
+        </tr>
+      </table>
+    </div>
+
+    {{#each pad}}
+      <span class='offset'>{{this}}</span>
+    {{/each}}
   </div>
+</section>
 
-  {{#each pad}}
-    <span class='offset'>{{this}}</span>
-  {{/each}}
-
-</div>
-
-
-<div id="options">
+<section id="options">
   <button {{action 'generate'}}>Regenerate</button>
   <button {{action 'pdf'}} class="tooltip-item">
       PDF
@@ -35,9 +35,9 @@
         <p>Matches {{#external-link href="http://www.amazon.com/gp/product/B00005QT7U/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00005QT7U&linkCode=as2&tag=louissimonsco-20&linkId=HIU4ERE5KXCUWBIE"}}Avery 5371{{/external-link}} business card paper</p>
       </div>
   </button>
-</div>
+</section>
 
-<div id="explanation">
+<section id="explanation">
   <h2>What's a One-Time Pad?</h2>
   <p>
     One-Time Pads, when used correctly, allow for unbreakable encryption between parties.
@@ -54,26 +54,27 @@
   <h2>Encryption</h2>
   <p>
     Write-out your plaintext message.  You are restricted to the capital letters A through Z,
-    a space character, and the symbols "#", ".", and "@".  To make your message more robust to
+    a space character, and the symbols "#", "?", and ".".  To make your message more robust to
     decryption efforts, keep it as short as possible, and consider removing characters not
     critical to understanding.
-  </p>
-  <p class='tips'>
-    Encode <span class="mono">CLASS STARTS AT 0800 TOMORROW</span> as
-     <span class="mono">CLASS STRT 0800 TMRW</span>
-     <br>
-    Encode <span class="mono">WE ARE ORDERING PIZZA</span> as
-     <span class="mono">ORDERING PZZA</span>
   </p>
   <p>
     Then, starting with the first character in the message, shift it right/down on the character table by the first number on the one-time pad.  For the second plaintext character, shift it by the second number on the pad.  Continue on until you have fully encrypted your message.
   </p>
+  <p>
+    This can get really tedious, but take note that each row in the character table contains two sets of 5 characters each.  Moving down a row is a shift by 10.  Jumping from one group of 5 characters to the same position in the next is a shift by 5.  The following examples demonstrate how you can quickly encode the message characters "N" and "R" by 11 and 38 respectively.
+  </p>
+
+  <div id="examples">
+    <img src='./example1.png' width=220 height=150>
+    <img src='./example2.png' width=220 height=150>
+  </div>
 
   <h2>Decryption</h2>
   <p>
-    Follow the opposite procedure used to encrypt the message.  For the first character of the encrypted message, shift up/left on the character table by the first number on the one-time pad.
+    Follow the opposite procedure used to encrypt the message.  For the first character of the encrypted message, shift up/left on the character table by the first number on the one-time pad.  You can use the same jumps of 5 and 10 characters used in the encryption examples, but move in the opposite direction.
   </p>
   <p>
     If you share multiple pads with the encrypting party, it may take a few tries to figure out which pad they are using.
   </p>
-</div>
+</section>

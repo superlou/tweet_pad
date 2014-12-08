@@ -68,7 +68,7 @@ export default Ember.Controller.extend({
     });
 
     // Draw key, note space is for extra column after ever 5 characters
-    var key = "ABCDE FGHIJKLMNO PQRSTUVWXY Z_01234567 89#@.";
+    var key = "ABCDE FGHIJKLMNO PQRSTUVWXY Z_01234567 89#?.";
 
     var dx = 2;
     var dy = 4;

@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   generatePad: function(length) {
-    var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789#@.";
+    var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789#?.";
 
     var data = new Uint32Array(length);
     window.crypto.getRandomValues(data);

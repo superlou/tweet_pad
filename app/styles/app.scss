@@ -1,35 +1,97 @@
 @import "bower_components/bourbon/dist/bourbon";
 @import "bower_components/neat/app/assets/stylesheets/neat";
 @import "bower_components/neat/app/assets/stylesheets/neat-helpers";
+// @import "bower_components/components-font-awesome/scss/font-awesome";
 
 body {
-  background: #f8f8f8;
+  background: white;
   font-family: sans-serif;
   -webkit-backface-visibility: hidden;
+  padding: 0px;
+  margin: 0px;
 }
 
 button {
   @include button;
 }
 
-#container {
-
-}
-
 section {
   @include outer-container;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  border-top: 1px solid #ddd;
+
+  font-family: 'Lato', sans-serif;
+
+  h2 {
+    font-weight: 300;
+    font-size: 36px;
+    text-align: center;
+    color: #555;
+  }
+
+  h4 {
+    margin: 0px;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+  }
+
+  img {
+    border: 1px solid #ddd;
+    border-bottom: 1px solid #999;
+  }
+
+  #examples {
+    text-align: center;
+  }
+
+  .left {
+    @include span-columns(6);
+  }
+
+  .right {
+    @include span-columns(6);
+    @include omega();
+  }
+
+  .one-third {
+    @include span-columns(4);
+  }
+
+  .last {
+    @include omega();
+  }
+}
+
+#top {
+  // background: url(/assets/images/background.jpg);
+  margin-bottom: 1em;
+
+  section {
+    border-top: none;
+  }
 }
 
 #card {
   @include span-columns(6);
   @include shift(3);
+  @include border-top-radius(5px);
+  @include border-bottom-radius(5px);
 
   padding: 1em;
-  border: 1px solid #f4f4f4;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #444;
   background: white;
   font-family: courier;
-  margin-bottom: 1em;
+  opacity: 0.7;
 
   .offset {
     display: inline-block;
@@ -54,21 +116,9 @@ section {
   }
 }
 
-#explanation {
-  #examples {
-    text-align: center;
-
-    img {
-      border: 1px solid #f4f4f4;
-      border-bottom: 1px solid #ddd;
-    }
-  }
-}
-
 #options {
-  @include fill-parent();
-  @include row();
   text-align: center;
+  border-top: none;
 }
 
 .tooltip-item {

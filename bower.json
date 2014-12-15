@@ -17,6 +17,8 @@
     "neat": "~1.7.0"
   },
   "devDependencies": {
-    "jspdf": "~1.0.272"
+    "jspdf": "~1.0.272",
+    "font-awesome": "~4.2.0",
+    "trianglify": "~0.1.5"
   }
 }

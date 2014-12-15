@@ -19,8 +19,11 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
-      'style-src': "'self' 'unsafe-inline'",   // todo Is 'unsafe-inline' necessary?
-      "connect-src": "'self' ws://localhost:35729 ws://0.0.0.0:35729 https://api.random.org"
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",   // todo Is 'unsafe-inline' necessary?
+      'connect-src': "'self' ws://localhost:35729 ws://0.0.0.0:35729",
+      'font-src': "'self' fonts.gstatic.com",
+      'img-src': "'self' www.google-analytics.com data:",
+      'script-src': "'self' 'unsafe-inline' www.google-analytics.com ajax.googleapis.com"
     }
   };
 
@@ -45,7 +48,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/onetweetpad';
+    ENV.baseURL = '/onetimepad';
   }
 
   return ENV;

@@ -1,80 +1,94 @@
-<section>
-  <div id="card">
-    <div id="character_table">
-      <table>
-        <tr>
-          <td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td class='space'></td>
-          <td>F</td><td>G</td><td>H</td><td>I</td><td>J</td>
-        </tr>
-        <tr>
-          <td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td class='space'></td>
-          <td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td>
-        </tr>
-        <tr>
-          <td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td class='space'></td>
-          <td>Z</td><td>_</td><td>0</td><td>1</td><td>2</td>
-        </tr>
-        <tr>
-          <td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td class='space'></td>
-          <td>8</td><td>9</td><td>#</td><td>?</td><td>.</td>
-        </tr>
-      </table>
+<div id="top">
+  <section>
+    <div id="card">
+      <div id="character_table">
+        <table>
+          <tr>
+            <td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td class='space'></td>
+            <td>F</td><td>G</td><td>H</td><td>I</td><td>J</td>
+          </tr>
+          <tr>
+            <td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td class='space'></td>
+            <td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td>
+          </tr>
+          <tr>
+            <td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td class='space'></td>
+            <td>Z</td><td>_</td><td>0</td><td>1</td><td>2</td>
+          </tr>
+          <tr>
+            <td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td class='space'></td>
+            <td>8</td><td>9</td><td>#</td><td>?</td><td>.</td>
+          </tr>
+        </table>
+      </div>
+
+      {{#each pad}}
+        <span class='offset'>{{this}}</span>
+      {{/each}}
     </div>
 
-    {{#each pad}}
-      <span class='offset'>{{this}}</span>
-    {{/each}}
-  </div>
-</section>
+  </section>
+</div>
 
 <section id="options">
-  <button {{action 'generate'}}>Regenerate</button>
+  <button {{action 'generate'}}><i class="fa fa-refresh"></i> Regenerate</button>
   <button {{action 'pdf'}} class="tooltip-item">
-      PDF
+      <i class="fa fa-download"></i> PDF
       <div class="tooltip">
-        <p>Matches {{#external-link href="http://www.amazon.com/gp/product/B00005QT7U/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00005QT7U&linkCode=as2&tag=louissimonsco-20&linkId=HIU4ERE5KXCUWBIE"}}Avery 5371{{/external-link}} business card paper</p>
+        <p>Matches {{#external-link href=paperLink}}Avery 5371{{/external-link}} business card paper</p>
       </div>
   </button>
+  <br>
+  <h4>
+  Generate a new one-time pad or save the displayed pad for printing.
+  </h4>
 </section>
 
 <section id="explanation">
   <h2>What's a One-Time Pad?</h2>
-  <p>
-    One-Time Pads, when used correctly, allow for unbreakable encryption between parties.
-    By physically exchanging a set of cryptographically random values, the message cannot
-    be deciphered by anyone other than a party with the shared pad.
+  <p class='one-third'>
+    One-time pads, when used correctly, allow for unbreakable encryption between parties.
+    By physically exchanging a sequence of cryptographically random numbers, the message cannot
+    be deciphered by anyone other than a party with the same sequence.
   </p>
-  <p>
-    To the end of distributing encrypted messages popular social messaging platforms, this
-    tool generates 140 offset values.  In order to gaurantee that the pad cannot be recreated
-    by an attacker, this entire application runs client-side, i.e. in your local browser.
-    You'll want to make sure you're using a trusted computer.
+  <p class='one-third'>
+    This tool generates a pad for a message up to 140 characters.  In order to gaurantee that the pad cannot be recreated by an attacker, this entire application runs client-side, i.e. in local browser. You'll want to make sure you use a trusted computer.
   </p>
+  <p class='one-third last'>
+    A pad's only good if you share it with some friends, so you can download your random
+    sequence as a PDF and print it out.  The printing template is compatable with {{#external-link href=paperLink}}Avery 5371{{/external-link}} business card paper for easy separation.
+  </p>
+</section>
 
-  <h2>Encryption</h2>
-  <p>
-    Write-out your plaintext message.  You are restricted to the capital letters A through Z,
-    a space character, and the symbols "#", "?", and ".".  To make your message more robust to
-    decryption efforts, keep it as short as possible, and consider removing characters not
-    critical to understanding.
-  </p>
-  <p>
-    Then, starting with the first character in the message, shift it right/down on the character table by the first number on the one-time pad.  For the second plaintext character, shift it by the second number on the pad.  Continue on until you have fully encrypted your message.
-  </p>
-  <p>
-    This can get really tedious, but take note that each row in the character table contains two sets of 5 characters each.  Moving down a row is a shift by 10.  Jumping from one group of 5 characters to the same position in the next is a shift by 5.  The following examples demonstrate how you can quickly encode the message characters "N" and "R" by 11 and 38 respectively.
-  </p>
+<section>
+  <div class="left">
+    <h2><i class="fa fa-lock"></i> Encryption</h2>
+    <p>
+      Write-out your plaintext message.  You are restricted to the capital letters A through Z,
+      a space character, and the symbols "#", "?", and ".".  To make your message more robust to
+      decryption efforts, keep it as short as possible, and consider removing characters not
+      critical to understanding.
+    </p>
+    <p>
+      Then, starting with the first character in the message, shift it right/down on the character table by the first number on the one-time pad.  For the second plaintext character, shift it by the second number on the pad.  Continue on until you have fully encrypted your message.
+    </p>
+    <p>
+      This can get really tedious, but take note that each row in the character table contains two sets of 5 characters each.  Moving down a row is a shift by 10.  Jumping from one group of 5 characters to the same position in the next is a shift by 5.  The following examples demonstrate how you can quickly encode the message characters "N" and "R" by 11 and 38 respectively.
+    </p>
 
-  <div id="examples">
-    <img src='./example1.png' width=220 height=150>
-    <img src='./example2.png' width=220 height=150>
+    <div id="examples">
+      <img src='./example1.png' width=220 height=150>
+      <img src='./example2.png' width=220 height=150>
+    </div>
   </div>
 
-  <h2>Decryption</h2>
-  <p>
-    Follow the opposite procedure used to encrypt the message.  For the first character of the encrypted message, shift up/left on the character table by the first number on the one-time pad.  You can use the same jumps of 5 and 10 characters used in the encryption examples, but move in the opposite direction.
-  </p>
-  <p>
-    If you share multiple pads with the encrypting party, it may take a few tries to figure out which pad they are using.
-  </p>
+  <div class="right">
+    <h2><i class="fa fa-unlock"></i> Decryption</h2>
+    <p>
+      Follow the opposite procedure used to encrypt the message.  For the first character of the encrypted message, shift up/left on the character table by the first number on the one-time pad.  You can use the same jumps of 5 and 10 characters used in the encryption examples, but move in the opposite direction.
+    </p>
+    <p>
+      If you share multiple pads with the encrypting party, it may take a few tries to figure out which pad they are using.
+    </p>
+  </div>
 </section>

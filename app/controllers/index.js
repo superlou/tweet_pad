@@ -1,10 +1,17 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(Ember.Evented, {
   needs: 'pad',
   pad: Ember.computed.alias('controllers.pad.pad'),
+  paperLink: "http://www.amazon.com/gp/product/B00005QT7U/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00005QT7U&linkCode=as2&tag=louissimonsco-20&linkId=HIU4ERE5KXCUWBIE",
+  regenerating: false,
 
   actions: {
+    generate: function() {
+      this.get('controllers.pad').createPad(true);
+      this.set('regenerating', !this.get('regenerating'));
+    },
+
     pdf: function() {
       var doc = new jsPDF("portrait", "mm", "letter");  // units in pts
       var origins = [
